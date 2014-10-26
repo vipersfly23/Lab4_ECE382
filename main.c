@@ -1,10 +1,10 @@
 //-------------------------------------------------------------------------------
-//	Name:		Dr. Chris Coulston
+//	Name:		C2C Hunter Her
 //	Term:		Fall 2014
 //	MCU:		MSP430G2553
 //	Lecture:	22
-//	Date:		16 October 2014
-//	Note:		Demonstration of how to combine C and assembly lanugage.
+//	Date:		23 October 2014
+//	Note:		Ping Pong Game
 //-------------------------------------------------------------------------------
 #include <msp430g2553.h>
  #include <stdlib.h>
