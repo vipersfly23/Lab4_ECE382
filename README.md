@@ -54,11 +54,11 @@ Subroutine Definition:
     * drawPad - Draws the paddle by calling the drawBlock methode twice.
   
 Header:
-
+![alt text](https://raw.githubusercontent.com/vipersfly23/Lab4_ECE382/master/header.GIF "HEADER CODE")
 BODY:
-
+![alt text](https://raw.githubusercontent.com/vipersfly23/Lab4_ECE382/master/main.GIF "MAIN BODY CODE")
 SUBROUTINES:
-    
+![alt text](https://raw.githubusercontent.com/vipersfly23/Lab4_ECE382/master/subroutines.GIF "SUBROUTINES") 
 ##Result
   
   This lab was a success. Functionality was checked off by instructor. No images could be displayed due to misplacement of
