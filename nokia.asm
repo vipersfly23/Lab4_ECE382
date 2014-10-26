@@ -349,7 +349,7 @@ drawBlock:
 	push	R5
 	push	R12
 	push	R13
-	push 	R14 ;Fill = 1, notFill = 0
+
 
 	rla.w	R13					; the column address needs multiplied
 	rla.w	R13					; by 8in order to convert it into a
@@ -358,25 +358,22 @@ drawBlock:
 
 	mov		#1, R12
 
-	cmp.w #1,R14
-	jnz		notFilled
+
 
 	mov		#0xFF, R13
-contProgram:
+
 	mov.w	#0x08, R5			; loop all 8 pixel columns
 loopdB:
 	call	#writeNokiaByte		; draw the pixels
 	dec.w	R5
 	jnz		loopdB
 
-	pop 	R14
+
 	pop		R13
 	pop		R12
 	pop		R5
 
 	ret							; return whence you came
 
-notFilled:
-	mov		#0x00, R13
-	jmp contProgram
+
 

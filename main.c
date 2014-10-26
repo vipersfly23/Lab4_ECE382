@@ -7,11 +7,18 @@
 //	Note:		Demonstration of how to combine C and assembly lanugage.
 //-------------------------------------------------------------------------------
 #include <msp430g2553.h>
+ #include <stdlib.h>
+
 
 extern void init();
 extern void initNokia();
 extern void clearDisplay();
-extern void drawBlock(unsigned char row, unsigned char col, unsigned char color);
+extern void drawBlock(unsigned char row, unsigned char col);
+
+void refreshDrawing(unsigned char yBall, unsigned char xBall, unsigned char yPad, unsigned char xPad);
+void drawPad(unsigned char yPad, unsigned char xPad);
+
+typedef	unsigned long int16;
 
 #define		TRUE			1
 #define		FALSE			0
@@ -24,58 +31,74 @@ extern void drawBlock(unsigned char row, unsigned char col, unsigned char color)
 
 void main() {
 
-	unsigned char	x, y, button_press,color;
+	unsigned char	xBall, yBall,xVel, yVel,yPad,xPad;
+	int16 i;
 
 	// === Initialize system ================================================
 	IFG1=0; /* clear interrupt flag1 */
 	WDTCTL=WDTPW+WDTHOLD; /* stop WD */
-	button_press = FALSE;
 
+	xPad=0; yPad=4;
 
 	init();
 	initNokia();
 	clearDisplay();
-	x=4;		y=4;
-	color = 1;
-	drawBlock(y,x,color);
+	xBall=4;		yBall=4;
+	xVel=1; yVel=1;
+	drawBlock(yBall,xBall);
+	drawPad(yPad, xPad);
 
 	while(1) {
 
-			if (UP_BUTTON == 0) {
-				while(UP_BUTTON == 0);
-				if (y>=1) y=y-1;
-				button_press = TRUE;
-			} else if (DOWN_BUTTON == 0) {
-				while(DOWN_BUTTON == 0);
-				if (y<=6) y=y+1;
-				button_press = TRUE;
-			} else if (LEFT_BUTTON == 0) {
-				while(LEFT_BUTTON == 0);
-				if (x>=1) x=x-1;
-				button_press = TRUE;
-			} else if (RIGHT_BUTTON == 0) {
-				while(RIGHT_BUTTON == 0);
-				if (x<=10) x=x+1;
-				button_press = TRUE;
-			}
-		if(AUX_BUTTON==0){
-								if(color == TRUE){
-									color = FALSE;
+
+				if (yBall<1||yBall>=7) yVel=-yVel;
+
+				if (xBall<1||xBall>10) xVel=-xVel;
+
+				xBall +=xVel;
+				yBall +=yVel;
+
+				if(xBall==1){
+					if(yBall>=(yPad)&&yBall<=(yPad+1)) xVel=-xVel;
+
+				}
+
+				if(UP_BUTTON==0){
+					if(yPad>=1){
+						yPad=yPad-1;
+					}
+				}
+
+				if(xBall==0){
+					exit(0);
+				}
+
+				if(DOWN_BUTTON==0){
+									if(yPad<6){
+										yPad=yPad+1;
+									}
 								}
-								else{
-									color=TRUE;
-								}
-								button_press=TRUE;
-							}
 
-			if (button_press) {
-				button_press = FALSE;
+				refreshDrawing(yBall,xBall,yPad,xPad);
+				//__delay_cycles (100000);
+				for (i=1 ; i<500000; i++) ;
 
-				//clearDisplay();
 
-				drawBlock(y,x,color);
 			}
-		}
+
+
+
+
 }
 
+void refreshDrawing(unsigned char yBall, unsigned char xBall,unsigned char yPad, unsigned char xPad){
+	clearDisplay();
 
+	drawBlock(yBall,xBall);
+	drawPad(yPad,xPad);
+}
+
+void drawPad(unsigned char yPad, unsigned char xPad){
+	drawBlock(yPad,xPad);
+	drawBlock(yPad+1,xPad);
+}
