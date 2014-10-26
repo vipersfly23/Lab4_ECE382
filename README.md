@@ -41,12 +41,23 @@ Variable Definitions:
    *  yVel - The velocity of the y component of the ball
    *  yPad - The y coordinate position of the paddle
    *  xPad - The x coordinate position of the paddle
-   *  
+   *  TOP - Beginning of window, y coordinate.
+   *  BOTTOM - END of window, y coordinate.
+   *  RIGHT - END of window, x coordinate.
+   *  LEFT - Beginning of window, x coordinate.
+   *  TRUE - 1.
+   *  FALSE - 0.
   
 Subroutine Definition:
   
     * refreshDrawing - clears the display, draws the block and the paddle in the new location.
     * drawPad - Draws the paddle by calling the drawBlock methode twice.
+  
+Header:
+
+BODY:
+
+SUBROUTINES:
     
 ##Result
   
@@ -70,36 +81,25 @@ Subroutine Definition:
 
 #####Commit 1
 
-  This commit was to add the finished code. (only about 20 lines were added)
+ Functioning required functionality.
   
 #####Commit 2
   
-   Added additional pictures / diagrams
+   A & B Functionality completed.
    
 #####Commit 3
     
-  Added more pictures.
-
-#####Commit 4
-  
-  Added more pictures.
+  Added images of the code.
     
 ****All other commits are either to add comments to the program or to update the README file****
 
 #####Testing:
 
-The testing could be verified by the image below. It shows the previous location of the box, by using the directional pads
-I was able to draw a H:
-
- ![alt text](https://raw.githubusercontent.com/vipersfly23/LAB3_ECE382/master/result.jpg "Results")
+The program worked great and verified by instructor. Very little testing was required, coding was straight forward.
 
 
 ###Conclusions/Lessons Learned
-  In conclusion the program was a success. The understanding of command/data bits were greatly enhanced. 
-  Understanding of how input and output pins are used in the MSP430 has greatly improved. Also the lab itself was success.
-  Biggest lesson learned is that understanding a given code is the most important step, and it must be achieved before trying
-  to add changes to the code.
-
+  In conclusion the program was a success. Subroutines were used where neccessary and understanding of clean and maintable was enforced. there aren't just numbers for the if and else statements but clear variable definition 
 
 ####Documentation:
   I used the ECE382.com website to access lab information and used the website to obtain the instruction sheet for the assembly
