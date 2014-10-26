@@ -22,6 +22,12 @@ typedef	unsigned long int16;
 
 #define		TRUE			1
 #define		FALSE			0
+
+#define 	RIGHT 			10
+#define		LEFT			1
+#define		TOP				1
+#define 	BOTTOM			7
+
 #define		UP_BUTTON		(P2IN & BIT5)
 #define		DOWN_BUTTON		(P2IN & BIT4)
 #define		AUX_BUTTON		(P2IN & BIT3)
@@ -51,9 +57,8 @@ void main() {
 	while(1) {
 
 
-				if (yBall<1||yBall>=7) yVel=-yVel;
-
-				if (xBall<1||xBall>10) xVel=-xVel;
+				if (yBall<TOP||yBall>=BOTTOM) yVel=-yVel;
+				if (xBall<LEFT||xBall>RIGHT) xVel=-xVel;
 
 				xBall +=xVel;
 				yBall +=yVel;
@@ -63,8 +68,8 @@ void main() {
 
 				}
 
-				if(UP_BUTTON==0){
-					if(yPad>=1){
+				if(UP_BUTTON==FALSE){
+					if(yPad>=TOP){
 						yPad=yPad-1;
 					}
 				}
@@ -73,8 +78,8 @@ void main() {
 					exit(0);
 				}
 
-				if(DOWN_BUTTON==0){
-									if(yPad<6){
+				if(DOWN_BUTTON==FALSE){
+									if(yPad<(BOTTOM-1)){
 										yPad=yPad+1;
 									}
 								}
