@@ -54,11 +54,17 @@ Subroutine Definition:
     * drawPad - Draws the paddle by calling the drawBlock methode twice.
   
 Header:
+
 ![alt text](https://raw.githubusercontent.com/vipersfly23/Lab4_ECE382/master/header.GIF "HEADER CODE")
+
 BODY:
+
 ![alt text](https://raw.githubusercontent.com/vipersfly23/Lab4_ECE382/master/main.GIF "MAIN BODY CODE")
+
 SUBROUTINES:
+
 ![alt text](https://raw.githubusercontent.com/vipersfly23/Lab4_ECE382/master/subroutines.GIF "SUBROUTINES") 
+
 ##Result
   
   This lab was a success. Functionality was checked off by instructor. No images could be displayed due to misplacement of
@@ -99,8 +105,9 @@ The program worked great and verified by instructor. Very little testing was req
 
 
 ###Conclusions/Lessons Learned
-  In conclusion the program was a success. Subroutines were used where neccessary and understanding of clean and maintable was enforced. there aren't just numbers for the if and else statements but clear variable definition 
+  In conclusion the program was a success. Subroutines were used where neccessary and understanding of clean and maintable was enforced. There aren't just numbers for the if and else statements but clear variable definition. The code is easy to
+  follow. 
 
 ####Documentation:
   I used the ECE382.com website to access lab information and used the website to obtain the instruction sheet for the assembly
-  language. I received helped from Taylor Bodin on how to use the data analyzer and what to look for on the display. Erica Lewondski helped me set up the pins for the data analyzer and the MSP430. Dustin Weisner explained the two tables and the purpose of the two tables in the lab.
+  language. I referenced the code from lecture 22 and built my code from the given nokia.asm and lec22.c files. I referenced stackoverflow.com on how to to exit a c program (exit(0)).
